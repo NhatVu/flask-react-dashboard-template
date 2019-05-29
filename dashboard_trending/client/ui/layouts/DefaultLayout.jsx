@@ -16,9 +16,9 @@ import {
   AppSidebarNav2 as AppSidebarNav,
 } from '@coreui/react';
 // sidebar nav config
-// import navigation from '../../_nav';
+import navigation from '../_nav';
 // routes config
-// import routes from '../../routes';
+import routes from '../routes';
 
 import DefaultAside  from './DefaultAside';
 import DefaultFooter from './DefaultFooter';
@@ -26,7 +26,7 @@ import DefaultHeader from './DefaultHeader';
 
 class DefaultLayout extends Component {
 
-  // loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
+  loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
   signOut(e) {
     e.preventDefault()
@@ -37,25 +37,25 @@ class DefaultLayout extends Component {
     return (
       <div className="app">
         <AppHeader fixed>
-          {/* <Suspense  fallback={this.loading()}> */}
+          <Suspense  fallback={this.loading()}>
             <DefaultHeader onLogout={e=>this.signOut(e)}/>
-          {/* </Suspense> */}
+          </Suspense>
         </AppHeader>
         <div className="app-body">
           <AppSidebar fixed display="lg">
             <AppSidebarHeader />
             <AppSidebarForm />
-            {/* <Suspense> */}
-            {/* <AppSidebarNav navConfig={navigation} {...this.props} router={router}/> */}
-            {/* </Suspense> */}
+            <Suspense>
+            <AppSidebarNav navConfig={navigation} {...this.props} router={router}/>
+            </Suspense>
             <AppSidebarFooter />
             <AppSidebarMinimizer />
           </AppSidebar>
           <main className="main">
-            {/* <AppBreadcrumb appRoutes={routes} router={router}/> */}
+            <AppBreadcrumb appRoutes={routes} router={router}/>
             <Container fluid>
-              {/* <Suspense fallback={this.loading()}> */}
-                {/* <Switch>
+              {/* <Suspense fallback={this.loading()}>
+                 <Switch>
                   {routes.map((route, idx) => {
                     return route.component ? (
                       <Route
@@ -69,20 +69,20 @@ class DefaultLayout extends Component {
                     ) : (null);
                   })}
                   <Redirect from="/" to="/dashboard" />
-                </Switch> */}
-              {/* </Suspense> */}
+                </Switch>
+              </Suspense> */}
             </Container>
           </main>
           <AppAside fixed>
-             {/* <Suspense fallback={this.loading()}> */}
+             <Suspense fallback={this.loading()}>
               <DefaultAside />
-             {/* </Suspense> */}
+             </Suspense>
           </AppAside>
         </div>
         <AppFooter>
-           {/* <Suspense fallback={this.loading()}> */}
+           <Suspense fallback={this.loading()}>
             <DefaultFooter />
-           {/* </Suspense> */}
+           </Suspense>
         </AppFooter>
       </div>
     );
