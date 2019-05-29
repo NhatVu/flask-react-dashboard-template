@@ -7,7 +7,7 @@ const config = {
   output: {
     path: resolve('public/bundle'),
     filename: 'bundle.js',
-    publicPath: resolve('public/bundle')
+    publicPath: 'public/bundle/'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.css', '.scss']
@@ -37,7 +37,7 @@ const config = {
           options: {
             name: '[name].[ext]',
             outputPath: 'fonts/',
-            publicPath:'public/bundle/fonts/'
+            publicPath: 'public/bundle/fonts/'
           }
         }]
       }

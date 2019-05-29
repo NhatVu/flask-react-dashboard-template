@@ -20,9 +20,9 @@ import navigation from '../_nav';
 // routes config
 import routes from '../routes';
 
-import DefaultAside  from './DefaultAside';
-import DefaultFooter from './DefaultFooter';
-import DefaultHeader from './DefaultHeader';
+const DefaultAside = React.lazy(() => import('./DefaultAside'));
+const DefaultFooter = React.lazy(() => import('./DefaultFooter'));
+const DefaultHeader = React.lazy(() => import('./DefaultHeader'));
 
 class DefaultLayout extends Component {
 
@@ -34,6 +34,10 @@ class DefaultLayout extends Component {
   }
 
   render() {
+    // routes.map((route, idx) => console.log(route.exact))
+    console.log(routes[0])
+    var routeCard = routes[0]
+    console.log(routeCard)
     return (
       <div className="app">
         <AppHeader fixed>
@@ -54,8 +58,11 @@ class DefaultLayout extends Component {
           <main className="main">
             <AppBreadcrumb appRoutes={routes} router={router}/>
             <Container fluid>
-              {/* <Suspense fallback={this.loading()}>
+              <Suspense fallback={this.loading()}>
                  <Switch>
+                     {/* <Route path="/" name="Home" render={props => <DefaultLayout {...props}/>} /> */}
+                    {/* <Route path="/base/cards" name="Cards" render={props => <Cards {...props} />} /> */}
+                    {/* <Route path={routeCard.path} name={routeCard.name} render={props => (<Cards {...props} />)} /> */}
                   {routes.map((route, idx) => {
                     return route.component ? (
                       <Route
@@ -70,7 +77,7 @@ class DefaultLayout extends Component {
                   })}
                   <Redirect from="/" to="/dashboard" />
                 </Switch>
-              </Suspense> */}
+              </Suspense>
             </Container>
           </main>
           <AppAside fixed>
