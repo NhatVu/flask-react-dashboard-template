@@ -77,7 +77,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/home/DATA/learning/Flask/flask-env/hello_template/templates/client/public";
+/******/ 	__webpack_require__.p = "/home/DATA/learning/Flask/flask-env/flask_react_dashboard/dashboard_trending/client/public";
 /******/
 /******/
 /******/ 	// Load entry module and return exports

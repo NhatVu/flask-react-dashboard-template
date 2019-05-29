@@ -3,6 +3,6 @@ app = Flask(__name__,
  	static_folder = './client/public',
  	template_folder="./client")
 
-from templates.hello.views import hello_blueprint
+from dashboard_trending.hello.views import hello_blueprint
 # register the blueprints
 app.register_blueprint(hello_blueprint)

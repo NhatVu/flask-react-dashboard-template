@@ -1,4 +1,4 @@
-from templates import app
+from dashboard_trending import app
 
 #Load this config object for development mode
 app.config.from_object('configurations.DevelopmentConfig')
